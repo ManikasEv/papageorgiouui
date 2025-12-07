@@ -1,19 +1,61 @@
 export const contactData = {
-  title: "Get a Free Quote",
-  subtitle: "Let's discuss your tile grouting project",
-  formFields: [
-    { name: "name", label: "Full Name", type: "text", placeholder: "John Doe", required: true },
-    { name: "email", label: "Email Address", type: "email", placeholder: "john@example.com", required: true },
-    { name: "phone", label: "Phone Number", type: "tel", placeholder: "+49 123 456 7890", required: true },
-    { name: "projectType", label: "Project Type", type: "select", options: ["Kitchen", "Bathroom", "Floor", "Commercial", "Other"], required: true },
-    { name: "message", label: "Project Details", type: "textarea", placeholder: "Tell me about your tiling project (area size, tile type, timeline, etc.)...", required: true }
-  ],
-  submitButtonText: "Request Free Quote",
-  mapCoordinates: {
-    lat: 47.5,
-    lng: 8.7244,
-    zoom: 13
+  heading: 'Kontakt aufnehmen',
+  subheading: 'Lassen Sie uns Ihr nächstes Fundament-Engineering-Projekt besprechen',
+  contactInfoHeading: 'Kontaktinformationen',
+  labels: {
+    address: 'Adresse',
+    phone: 'Telefon',
+    email: 'E-Mail',
   },
-  mapAddress: "Winterthur, Switzerland"
+  successMessage: 'Vielen Dank! Wir werden uns bald bei Ihnen melden.',
+  submitButton: 'Nachricht senden',
 };
 
+export const contactInfo = {
+  email: 'info@papage.ch',
+  phone: '+41 79 656 56 21',
+  address: 'Steinackerweg 9, 8405 Winterthur',
+  coordinates: {
+    lat: 47.5034,
+    lng: 8.7249,
+  },
+};
+
+export const formFields = [
+  {
+    id: 'name',
+    label: 'Vollständiger Name',
+    type: 'text',
+    placeholder: 'Max Mustermann',
+    required: true,
+  },
+  {
+    id: 'email',
+    label: 'E-Mail',
+    type: 'email',
+    placeholder: 'max@beispiel.com',
+    required: true,
+  },
+  {
+    id: 'phone',
+    label: 'Telefon',
+    type: 'tel',
+    placeholder: '+41 123 456 7890',
+    required: false,
+  },
+  {
+    id: 'subject',
+    label: 'Betreff',
+    type: 'text',
+    placeholder: 'Projektanfrage',
+    required: true,
+  },
+  {
+    id: 'message',
+    label: 'Nachricht',
+    type: 'textarea',
+    placeholder: 'Erzählen Sie uns von Ihrem Projekt...',
+    required: true,
+    rows: 5,
+  },
+];
