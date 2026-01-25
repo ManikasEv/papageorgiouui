@@ -5,21 +5,51 @@ import { contactData, formFields, contactInfo } from '../data/contactData';
 const Contact = forwardRef((props, ref) => {
   const [formData, setFormData] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.id]: e.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-    setFormData({});
+    setIsSubmitting(true);
+    setError(false);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '3d5698d2-4ec8-4137-b1b5-5a9b7541758b',
+          ...formData,
+          subject: `Neue Kontaktanfrage von ${formData.name || 'Website'}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+        setFormData({});
+        setTimeout(() => setSubmitted(false), 5000);
+      } else {
+        setError(true);
+        setTimeout(() => setError(false), 5000);
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setError(true);
+      setTimeout(() => setError(false), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -66,36 +96,54 @@ const Contact = forwardRef((props, ref) => {
                   {field.type === 'textarea' ? (
                     <textarea
                       id={field.id}
+                      name={field.id}
                       rows={field.rows}
                       placeholder={field.placeholder}
                       required={field.required}
                       value={formData[field.id] || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none disabled:bg-gray-100 disabled:cursor-not-allowed"
                     />
                   ) : (
                     <input
                       type={field.type}
                       id={field.id}
+                      name={field.id}
                       placeholder={field.placeholder}
                       required={field.required}
                       value={formData[field.id] || ''}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 disabled:bg-gray-100 disabled:cursor-not-allowed"
                     />
                   )}
                 </div>
               ))}
               <button
                 type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-lg transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl"
+                disabled={isSubmitting}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 rounded-lg transition-all duration-300 hover:scale-105 transform shadow-lg hover:shadow-xl disabled:bg-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                {contactData.submitButton}
+                {isSubmitting ? 'Wird gesendet...' : contactData.submitButton}
               </button>
               {submitted && (
-                <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg text-center animate-pulse">
-                  {contactData.successMessage}
-                </div>
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg text-center"
+                >
+                  ✓ {contactData.successMessage}
+                </motion.div>
+              )}
+              {error && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-center"
+                >
+                  ✗ Es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut.
+                </motion.div>
               )}
             </form>
           </motion.div>
@@ -111,7 +159,7 @@ const Contact = forwardRef((props, ref) => {
             {/* Map */}
             <div className="rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 bg-gray-200">
               <iframe
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.234!2d${contactInfo.coordinates.lng}!3d${contactInfo.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDfCsDMwJzEyLjIiTiA4wrA0MycyOS42IkU!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s`}
+                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.5!2d${contactInfo.coordinates.lng}!3d${contactInfo.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a99d336c064f9%3A0x5c5aa9f4e6b8c0f8!2sSteinackerweg%209%2C%208405%20Winterthur!5e0!3m2!1sde!2sch!4v1234567890123!5m2!1sde!2sch`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -24,4 +24,9 @@ export const partners = [
     name: 'Partner 4',
     image: new URL('../assets/partner4.png', import.meta.url).href,
   },
+  {
+    id: 5,
+    name: 'Partner 5',
+    image: new URL('../assets/partner5.png', import.meta.url).href,
+  },
 ];

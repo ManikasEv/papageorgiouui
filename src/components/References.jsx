@@ -5,6 +5,8 @@ import { referencesData, references } from '../data/referencesData';
 const References = forwardRef((props, ref) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState(null);
 
   // Group images into sets of 3 for the single row
   const imagesPerSlide = 3;
@@ -25,6 +27,28 @@ const References = forwardRef((props, ref) => {
   const getCurrentSlideImages = () => {
     const start = currentIndex * imagesPerSlide;
     return references.slice(start, start + imagesPerSlide);
+  };
+
+  const openLightbox = (image) => {
+    setLightboxImage(image);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setLightboxImage(null);
+  };
+
+  const nextLightboxImage = () => {
+    const currentImageIndex = references.findIndex(ref => ref.id === lightboxImage.id);
+    const nextIndex = (currentImageIndex + 1) % references.length;
+    setLightboxImage(references[nextIndex]);
+  };
+
+  const prevLightboxImage = () => {
+    const currentImageIndex = references.findIndex(ref => ref.id === lightboxImage.id);
+    const prevIndex = (currentImageIndex - 1 + references.length) % references.length;
+    setLightboxImage(references[prevIndex]);
   };
 
   const slideVariants = {
@@ -80,6 +104,7 @@ const References = forwardRef((props, ref) => {
                 {getCurrentSlideImages().map((ref) => (
                   <div
                     key={ref.id}
+                    onClick={() => openLightbox(ref)}
                     className="relative w-full h-full overflow-hidden rounded-xl shadow-lg group cursor-pointer"
                   >
                     <img
@@ -87,7 +112,11 @@ const References = forwardRef((props, ref) => {
                       alt={ref.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <svg className="w-12 h-12 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                        <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                      </svg>
+                    </div>
                   </div>
                 ))}
               </motion.div>
@@ -164,6 +193,72 @@ const References = forwardRef((props, ref) => {
           {currentIndex + 1} {referencesData.counterLabel} {totalSlides}
         </motion.div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
+            onClick={closeLightbox}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 text-white hover:text-blue-400 transition-colors duration-200 z-50"
+              aria-label="Schließen"
+            >
+              <svg className="w-8 h-8" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Image Container */}
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="relative max-w-7xl max-h-[90vh] w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={lightboxImage.image}
+                alt={lightboxImage.title}
+                className="w-full h-full object-contain rounded-lg"
+              />
+
+              {/* Previous Button */}
+              <button
+                onClick={prevLightboxImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full p-3 transition-all duration-300 hover:scale-110 transform"
+                aria-label="Vorheriges Bild"
+              >
+                <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+
+              {/* Next Button */}
+              <button
+                onClick={nextLightboxImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full p-3 transition-all duration-300 hover:scale-110 transform"
+                aria-label="Nächstes Bild"
+              >
+                <svg className="w-6 h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+                  <path d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+
+              {/* Image Counter */}
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm">
+                {references.findIndex(ref => ref.id === lightboxImage.id) + 1} / {references.length}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 });

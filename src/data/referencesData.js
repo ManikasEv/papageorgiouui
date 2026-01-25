@@ -1,6 +1,6 @@
 export const referencesData = {
   heading: 'Unsere Referenzen',
-  subheading: 'Eine Auswahl unserer abgeschlossenen Fundament-Engineering-Projekte',
+  subheading: 'Eine Auswahl unserer abgeschlossenen Fugen-Projekte',
   counterLabel: 'von',
 };
 

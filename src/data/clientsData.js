@@ -1,7 +1,7 @@
 export const clientsData = {
   heading: 'Unsere Kunden',
   slogan: 'Vertrauen durch Qualität – Ihre Projekte in besten Händen',
-  subheading: 'Mit über 30 Jahren Erfahrung unterstützen wir verschiedenste Kunden bei ihren Fundament-Projekten. Von der Planung bis zur Ausführung – wir sind Ihr zuverlässiger Partner.',
+  subheading: 'Unsere Kunden sind so vielseitig wie unsere Projekte: Architekten, Verwaltungen, Plattenleger und Privatpersonen vertrauen auf unsere Erfahrung, Präzision und Zuverlässigkeit – von der ersten Idee bis zum letzten Handgriff.',
 };
 
 export const clientTypes = [
@@ -12,28 +12,19 @@ export const clientTypes = [
   },
   {
     id: 2,
-    title: 'Bauunternehmen',
-    description: 'Professionelle Fundament-Lösungen',
-  },
-  {
-    id: 3,
     title: 'Verwaltungen',
     description: 'Öffentliche und kommunale Projekte',
   },
   {
+    id: 3,
+    title: 'Plattenleger',
+    description: 'Professionelle Fugen-Lösungen',
+  },
+  {
     id: 4,
-    title: 'Private Bauherren',
+    title: 'Privatpersonen',
     description: 'Individuelle Beratung und Umsetzung',
   },
-  {
-    id: 5,
-    title: 'Generalunternehmer',
-    description: 'Komplexe Bauvorhaben',
-  },
-  {
-    id: 6,
-    title: 'Immobilienentwickler',
-    description: 'Innovative Fundament-Konzepte',
-  },
 ];
+
 

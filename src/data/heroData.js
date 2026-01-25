@@ -1,6 +1,6 @@
 export const heroData = {
   title: 'PAPAGEORGIOU GEORGIOS',
-  slogan: 'Fundamente bauen, Exzellenz entwickeln',
+  slogan: 'Perfekte Fugen – Präzision aus Leidenschaft.',
   stats: [
     {
       id: 1,
@@ -18,4 +18,5 @@ export const heroData = {
     link: '#references',
   },
 };
+
 
