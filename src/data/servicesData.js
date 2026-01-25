@@ -1,33 +1,34 @@
+export const servicesData = {
+  heading: 'Unsere Leistungen',
+  subheading: 'Professionelle Fugenabdichtungen für jeden Bedarf',
+  ctaButton: 'Jetzt Kontakt aufnehmen',
+};
+
 export const services = [
   {
     id: 1,
     icon: 'seal',
     title: 'Fugenabdichtungen',
-    description: 'Professionelle Abdichtung von Dehnungsfugen in Bauwerken. Wir sorgen für dauerhafte Dichtigkeit gegen Feuchtigkeit und Witterungseinflüsse bei Rohren, Kabelschächten und exponierten Stellen. Unsere zertifizierten Fugendichter gewährleisten höchste Qualität.',
+    description: 'Silikonfugen dichten Übergänge und Anschlussstellen in Bädern, Küchen, Fenstern, Böden etc. zuverlässig gegen Feuchtigkeit ab und sorgen für eine saubere, langlebige Oberfläche.',
   },
   {
     id: 2,
     icon: 'structure',
-    title: 'Hybrid-Dilatationsfugen',
-    description: 'Spezialisiert auf die Herstellung und Sanierung von Hybridfugen bei Maueranschlüssen, Fassaden und verschiedenen Bauelementen. Wir kombinieren moderne Materialien mit bewährten Techniken für optimale Bewegungsaufnahme und Langlebigkeit.',
+    title: 'Hybridfugen',
+    description: 'Hybridfugen schützen Bauteile vor Feuchtigkeit, Schmutz und Lärm, indem sie Spalten dauerhaft und sicher verschliessen.',
   },
   {
     id: 3,
     icon: 'renovate',
-    title: 'Fugensanierung',
-    description: 'Fachgerechte Sanierung und Neuanordnung alter Fugen. Wir entfernen verwitterte Fugenmaterialien und ersetzen diese durch hochwertige, elastische Dichtstoffe. Ihre Fugen erhalten neue Elastizität, Farbe und schützen Ihr Bauwerk langfristig.',
+    title: 'Fugensanierungen',
+    description: 'Fugensanierung bezeichnet das Erneuern beschädigter oder undichter Fugen, um Dichtigkeit, Sauberkeit und Schutz vor Feuchtigkeit dauerhaft wiederherzustellen.',
   },
   {
     id: 4,
     icon: 'fire',
     title: 'Brandschutzfugen',
-    description: 'Zertifizierte Brandschutzabdichtungen für höchste Sicherheitsanforderungen. Wir installieren feuerbeständige Fugen in Rohren, Kabelschächten und Durchdringungen, die im Brandfall Leben retten und Ihr Eigentum schützen können.',
-  },
-  {
-    id: 5,
-    icon: 'glass',
-    title: 'Glasversiegelung',
-    description: 'Professionelle Verfugung von Fensterabdichtungen und Glasversiegelungen. Mit geprüften Materialien verschiedener Hersteller führen wir je nach Einsatzgebiet die optimale Abdichtung durch. Dichtigkeit und Ästhetik in perfekter Harmonie.',
+    description: 'Brandschutzfugen verhindern die Ausbreitung von Feuer und Rauch zwischen Bauteilen und tragen so entscheidend zur Einhaltung der Brandschutzvorschriften und zur Gebäudesicherheit bei.',
   },
 ];
+
 

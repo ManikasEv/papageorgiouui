@@ -12,12 +12,12 @@ export const contactData = {
 };
 
 export const contactInfo = {
-  email: 'info@papage.ch',
+  email: 'info@papageorgiou-fugen.ch',
   phone: '+41 79 656 56 21',
   address: 'Steinackerweg 9, 8405 Winterthur',
   coordinates: {
-    lat: 47.5034,
-    lng: 8.7249,
+    lat: 47.50085,
+    lng: 8.69803,
   },
 };
 

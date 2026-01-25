@@ -1,14 +1,14 @@
 export const teamData = {
   heading: 'Unser Experte',
-  subheading: 'Der Visionär hinter der Fundament-Engineering-Exzellenz',
+  subheading: 'Qualität, Zuverlässigkeit und saubere Arbeit bis ins Detail',
 };
 
 export const teamMembers = [
   {
     id: 1,
     name: 'Georgios Papageorgiou',
-    position: 'Gründer & Chefingenieur',
+    position: 'Fugenabdichtungen',
     image: new URL('../assets/profile.jpg', import.meta.url).href,
-    description: 'Führender Experte für Fundament-Engineering mit über 30 Jahren internationaler Erfahrung in komplexen geotechnischen Projekten. Spezialisiert auf innovative Fundamentlösungen und hat erfolgreich über 500 Projekte weltweit abgeschlossen.',
+    description: 'Seit über 30 Jahren steht Georgios Papageorgiou für Qualität, Zuverlässigkeit und saubere Arbeit bis ins Detail. Ob Bad, Küche oder Fassade; mit Erfahrung, Sorgfalt und einem Auge fürs Handwerk sorgt er dafür, dass jede Fuge sitzt und perfekt aussieht.',
   },
 ];
