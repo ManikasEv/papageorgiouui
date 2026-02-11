@@ -5,6 +5,7 @@ import Team from './components/Team';
 import Services from './components/Services';
 import Clients from './components/Clients';
 import References from './components/References';
+import Projects from './components/Projects';
 import Partners from './components/Partners';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -16,6 +17,7 @@ function App() {
   const teamRef = useRef(null);
   const servicesRef = useRef(null);
   const clientsRef = useRef(null);
+  const projectsRef = useRef(null);
   const partnersRef = useRef(null);
   const contactRef = useRef(null);
 
@@ -25,6 +27,7 @@ function App() {
     team: teamRef,
     services: servicesRef,
     clients: clientsRef,
+    projects: projectsRef,
     partners: partnersRef,
     contact: contactRef,
   };
@@ -37,6 +40,7 @@ function App() {
       <Services ref={servicesRef} contactRef={contactRef} />
       <Clients ref={clientsRef} contactRef={contactRef} />
       <References ref={referencesRef} />
+      <Projects ref={projectsRef} />
       <Partners ref={partnersRef} />
       <Contact ref={contactRef} />
       <Footer />
