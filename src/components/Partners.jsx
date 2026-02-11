@@ -24,7 +24,7 @@ const Partners = forwardRef((props, ref) => {
         </motion.div>
 
         {/* Partners Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.id}
@@ -32,12 +32,12 @@ const Partners = forwardRef((props, ref) => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="flex items-center justify-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:shadow-lg group h-32"
+              className="flex items-center justify-center p-8 md:p-10 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-300 hover:shadow-xl group h-48 md:h-56"
             >
               <img
                 src={partner.image}
                 alt={partner.name}
-                className="max-w-full max-h-14 w-auto h-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                className="max-w-full max-h-32 md:max-h-40 w-auto h-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
               />
             </motion.div>
           ))}

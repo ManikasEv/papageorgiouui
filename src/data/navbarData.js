@@ -5,6 +5,7 @@ export const navbarData = {
     { name: 'Dienstleistungen', key: 'services' },
     { name: 'Kunden', key: 'clients' },
     { name: 'Referenzen', key: 'references' },
+    { name: 'Projekte', key: 'projects' },
     { name: 'Partner', key: 'partners' },
     { name: 'Kontakt', key: 'contact' },
   ],
