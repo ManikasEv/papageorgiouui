@@ -5,6 +5,11 @@ export const partnersData = {
 
 export const partners = [
   {
+    id: 6,
+    name: 'Partner 6',
+    image: new URL('../assets/partner6.jpg', import.meta.url).href,
+  },
+  {
     id: 1,
     name: 'Partner 1',
     image: new URL('../assets/partner1.png', import.meta.url).href,
