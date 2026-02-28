@@ -1,6 +1,6 @@
 export const contactData = {
   heading: 'Kontakt aufnehmen',
-  subheading: 'Lassen Sie uns Ihr nächstes Fundament-Engineering-Projekt besprechen',
+  subheading: 'Lassen Sie uns Ihr nächstes Fugenabdichtungs-Projekt besprechen',
   contactInfoHeading: 'Kontaktinformationen',
   labels: {
     address: 'Adresse',

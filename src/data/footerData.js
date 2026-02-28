@@ -8,7 +8,7 @@ export const footerData = {
       heading: 'Kontaktinformationen',
     },
   },
-  copyright: 'Papageorgiou Fundament-Engineering. Alle Rechte vorbehalten.',
+  copyright: 'Papageorgiou Fugenabdichtung. Alle Rechte vorbehalten.',
   links: [
     {
       name: 'Datenschutz',

@@ -1,6 +1,6 @@
 export const partnersData = {
   heading: 'Unsere Partner',
-  subheading: 'Vertrauensvolle Zusammenarbeit für Exzellenz im Fundament-Engineering',
+  subheading: 'Vertrauensvolle Zusammenarbeit für Exzellenz in der Fugenabdichtung',
 };
 
 export const partners = [
