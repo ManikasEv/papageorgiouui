@@ -53,7 +53,7 @@ const Contact = forwardRef((props, ref) => {
   };
 
   return (
-    <section ref={ref} className="py-20 md:py-32 bg-white">
+    <section ref={ref} className="py-20 md:py-32 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div 
@@ -157,11 +157,10 @@ const Contact = forwardRef((props, ref) => {
             className="space-y-8"
           >
             {/* Map */}
-            <div className="rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 bg-gray-200">
+            <div className="rounded-2xl overflow-hidden shadow-lg h-64 md:h-80 bg-gray-200 w-full">
               <iframe
                 src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2699.5!2d${contactInfo.coordinates.lng}!3d${contactInfo.coordinates.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479a99d336c064f9%3A0x5c5aa9f4e6b8c0f8!2sSteinackerweg%209%2C%208405%20Winterthur!5e0!3m2!1sde!2sch!4v1234567890123!5m2!1sde!2sch`}
-                width="100%"
-                height="100%"
+                className="w-full h-full"
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
