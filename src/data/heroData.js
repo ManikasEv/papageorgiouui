@@ -1,5 +1,5 @@
 export const heroData = {
-  title: 'GP FUGENABDICHTUGEN GMBH',
+  title: 'GP Fugen GmbH',
   slogan: 'Perfekte Fugen – Präzision aus Leidenschaft.',
   stats: [
     {
