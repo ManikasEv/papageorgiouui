@@ -110,7 +110,7 @@ const References = forwardRef((props, ref) => {
                     <img
                       src={ref.image}
                       alt={ref.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-contain bg-black transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <svg className="w-12 h-12 text-white" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,13 +220,13 @@ const References = forwardRef((props, ref) => {
               initial={{ scale: 0.9 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0.9 }}
-              className="relative max-w-7xl max-h-[90vh] w-full"
+              className="relative max-w-7xl w-full h-[80vh] max-h-[90vh] flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               <img
                 src={lightboxImage.image}
                 alt={lightboxImage.title}
-                className="w-full h-full object-contain rounded-lg"
+                className="block max-w-full max-h-full w-auto h-auto object-contain rounded-lg"
               />
 
               {/* Previous Button */}

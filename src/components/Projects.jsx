@@ -132,14 +132,12 @@ const Projects = forwardRef((props, ref) => {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.5 }}
-                      className="relative w-full"
-                      style={{ minHeight: '70vh' }}
+                      className="relative w-full h-[70vh] md:h-[80vh] bg-black flex items-center justify-center"
                     >
                       <img
                         src={projects[currentIndex].image}
                         alt={projects[currentIndex].title}
-                        className="w-full h-full object-contain"
-                        style={{ minHeight: '70vh', maxHeight: '85vh' }}
+                        className="block max-w-full max-h-full w-auto h-auto object-contain"
                       />
                     </motion.div>
                   </AnimatePresence>
