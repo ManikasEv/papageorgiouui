@@ -1,5 +1,5 @@
 export const heroData = {
-  title: 'PAPAGEORGIOU GEORGIOS',
+  title: 'GP Fugen GmbH',
   slogan: 'Perfekte Fugen – Präzision aus Leidenschaft.',
   stats: [
     {

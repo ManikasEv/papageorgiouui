@@ -9,6 +9,6 @@ export const navbarData = {
     { name: 'Partner', key: 'partners' },
     { name: 'Kontakt', key: 'contact' },
   ],
-  logoAlt: 'Papageorgiou Fundament-Engineering',
+  logoAlt: 'Papageorgiou Fugenabdichtung',
 };
 

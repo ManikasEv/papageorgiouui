@@ -25,7 +25,7 @@ const Partners = forwardRef((props, ref) => {
           </p>
         </motion.div>
 
-        {/* Partners Grid - LARGER with Click to Enlarge */}
+        {/* Partners Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {partners.map((partner, index) => (
             <motion.div
@@ -35,12 +35,12 @@ const Partners = forwardRef((props, ref) => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               onClick={() => setSelectedPartner(partner)}
-              className="flex items-center justify-center p-8 md:p-12 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all duration-300 hover:shadow-xl group cursor-pointer min-h-[200px] md:min-h-[250px]"
+              className="flex items-center justify-center p-8 md:p-10 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all duration-300 hover:shadow-xl group h-48 md:h-56 cursor-pointer"
             >
               <img
                 src={partner.image}
                 alt={partner.name}
-                className="max-w-full max-h-32 md:max-h-40 w-auto h-auto object-contain transition-all duration-300 group-hover:scale-110"
+                className="max-w-full max-h-32 md:max-h-40 w-auto h-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
               />
             </motion.div>
           ))}
@@ -63,7 +63,7 @@ const Partners = forwardRef((props, ref) => {
                 exit={{ scale: 0.5, opacity: 0 }}
                 transition={{ type: 'spring', damping: 25, stiffness: 300 }}
                 onClick={(e) => e.stopPropagation()}
-                className="relative max-w-5xl w-full mx-4"
+                className="relative max-w-4xl w-full mx-4"
               >
                 {/* Close Button */}
                 <button
@@ -76,13 +76,20 @@ const Partners = forwardRef((props, ref) => {
                   </svg>
                 </button>
 
-                {/* Enlarged Image */}
-                <div className="bg-white rounded-2xl p-8 md:p-16 shadow-2xl flex items-center justify-center min-h-[60vh]">
-                  <img
-                    src={selectedPartner.image}
-                    alt={selectedPartner.name}
-                    className="max-w-full max-h-[70vh] w-auto h-auto object-contain"
-                  />
+                {/* Partner Logo Display */}
+                <div className="relative bg-white rounded-2xl overflow-hidden shadow-2xl p-12 md:p-16">
+                  <div className="flex items-center justify-center" style={{ minHeight: '50vh' }}>
+                    <img
+                      src={selectedPartner.image}
+                      alt={selectedPartner.name}
+                      className="max-w-full max-h-[60vh] w-auto h-auto object-contain"
+                    />
+                  </div>
+                  <div className="text-center mt-8">
+                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                      {selectedPartner.name}
+                    </h3>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
@@ -96,3 +103,4 @@ const Partners = forwardRef((props, ref) => {
 Partners.displayName = 'Partners';
 
 export default Partners;
+

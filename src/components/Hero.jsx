@@ -16,19 +16,20 @@ const Hero = forwardRef((props, ref) => {
         }}></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
-        <div className="text-center space-y-8 md:space-y-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-14 md:py-28">
+        <div className="text-center space-y-6 md:space-y-12">
           {/* Logo Text */}
           <motion.div 
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-2"
+            className="space-y-3 md:space-y-5"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+            <h1 className="text-[clamp(1.05rem,4.6vw,3.8rem)] font-bold text-white tracking-[0.015em] leading-[1.05] whitespace-nowrap drop-shadow-[0_4px_16px_rgba(0,0,0,0.3)]">
               {heroData.title}
             </h1>
-            <div className="h-1 w-32 md:w-48 bg-blue-500 mx-auto rounded-full"></div>
+
+            <div className="h-1 w-28 md:w-56 bg-blue-500 mx-auto rounded-full"></div>
           </motion.div>
 
           {/* Slogan */}

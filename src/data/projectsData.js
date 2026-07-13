@@ -1,6 +1,6 @@
 export const projectsData = {
   heading: 'Unsere Projekte',
-  subheading: 'Erfolgreiche Realisierungen im Fundament-Engineering',
+  subheading: 'Erfolgreiche Realisierungen in der Fugenabdichtung',
 };
 
 export const projects = [

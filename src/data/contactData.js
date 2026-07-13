@@ -1,6 +1,6 @@
 export const contactData = {
   heading: 'Kontakt aufnehmen',
-  subheading: 'Lassen Sie uns Ihr nächstes Fundament-Engineering-Projekt besprechen',
+  subheading: 'Lassen Sie uns Ihr nächstes Fugenabdichtungs-Projekt besprechen',
   contactInfoHeading: 'Kontaktinformationen',
   labels: {
     address: 'Adresse',
@@ -12,7 +12,7 @@ export const contactData = {
 };
 
 export const contactInfo = {
-  email: 'info@papageorgiou-fugen.ch',
+  email: 'info@gpfugen.ch',
   phone: '+41 79 656 56 21',
   address: 'Steinackerweg 9, 8405 Winterthur',
   coordinates: {
